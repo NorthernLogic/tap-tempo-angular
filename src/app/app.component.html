@@ -1,3 +1,17 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+    Tap Tempo
+    <span class="fill-remaining-space"></span>
+    <md-toolbar-row>
+      <bpm #bpm></bpm>
+    </md-toolbar-row>
+</md-toolbar>
+
+<button md-button (click)="bpm.tap()">
+  To determine the BPM, tap here to the rhythm of the music.
+</button>
+
+<div class="brand">
+  <a href="http://wearenorthern.com/" target="_blank">
+    <img src="images/nl-mark.png" height="72" alt="Northern Logic logo">
+  </a>
+</div>
