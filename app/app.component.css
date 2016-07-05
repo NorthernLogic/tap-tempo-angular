@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.brand {
+  margin: 1em auto;
+}
+
+button {
+  flex: 1 0;
+  white-space: normal;
+}

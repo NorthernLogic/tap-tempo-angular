@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex: 1 0;
+  line-height: 64px;
+  white-space: nowrap;
+}
+
+.avg {
+  font-weight: bold;
+}
+
+.avg-number {
+  font-size: 1.2em;
+}
+
+.metronome {
+  flex: 0 1;
+  border: 15px solid white;
+  border-radius: 15px;
+  width: 0;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
