@@ -1,6 +1,16 @@
 # TapTempo
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.9.
+## [Demo](northernlogic.github.io/tap-tempo-angular/)
+To install to phone:
+  * Open demo on phone in chrome
+  * Tap chrome context menu
+  * Tap add to Home screen
+
+
+## Progress
+ - [x] Initial Demo
+ - [x] Web App manifest
+ - [ ] Offline functionality via service workers (coming soon)
 
 ## Quickstart
 
@@ -8,6 +18,8 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 * `npm install`
 * `ng serve`  # Optionally use -prod flag
 * Open browser to http://127.0.0.1:4200
+
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.9.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
