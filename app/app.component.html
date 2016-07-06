@@ -6,12 +6,17 @@
     </md-toolbar-row>
 </md-toolbar>
 
-<button md-button (click)="bpm.tap()">
-  To determine the BPM, tap here to the rhythm of the music.
-</button>
+<div class="content">
+  <p class="instructions">To determine the BPM, tap the button to the rhythm of the music.</p>
 
-<div class="brand">
-  <a href="http://wearenorthern.com/" target="_blank">
-    <img src="images/nl-mark.png" height="72" alt="Northern Logic logo">
-  </a>
+  <div class="tap-area" (click)="bpm.tap()">
+  <button md-fab>Tap</button>
+</div>
+
+  <div class="brand">
+    <a href="http://wearenorthern.com/" target="_blank">
+      <img src="images/nl-mark.png" height="72" alt="Northern Logic logo">
+    </a>
+  </div>
+
 </div>
