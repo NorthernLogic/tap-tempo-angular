@@ -1,6 +1,9 @@
 <md-toolbar color="primary">
     Tap Tempo
     <span class="fill-remaining-space"></span>
+
+    <md-icon *ngIf="soundEnabled" (click)="toggleSound(bpm)">volume_up</md-icon>
+    <md-icon *ngIf="!soundEnabled" (click)="toggleSound(bpm)">volume_mute</md-icon>
     <md-toolbar-row>
       <bpm #bpm></bpm>
     </md-toolbar-row>

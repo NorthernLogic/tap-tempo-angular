@@ -19,6 +19,7 @@ const materialPkgs: string[] = [
   'core',
   'button',
   'toolbar',
+  'icon',
 ];
 
 materialPkgs.forEach((pkg) => {
