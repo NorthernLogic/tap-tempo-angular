@@ -2,7 +2,7 @@
   <span class="avg-number">{{ bpmStats ? (bpmStats.avg | number:'1.0-0') : '--' }}</span> BPM
 </span>
 <span class="fill-remaining-space">
-  <div class="metronome" @pulseState="pulseState"></div>
+  <div class="metronome" [style.animationDuration]="pulseDuration + 'ms'"></div>
 </span>
 <span>
   Min {{ bpmStats ? (bpmStats.min | number:'1.0-0') : '--' }} Max {{  bpmStats ? (bpmStats.max | number:'1.0-0') : '--'}}

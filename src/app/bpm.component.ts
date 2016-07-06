@@ -1,15 +1,6 @@
 import {
   Component,
-  trigger,
-  state,
-  style,
-  transition,
-  keyframes,
-  animate,
-  OnInit,
 } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
-import { Subject } from 'rxjs/Rx';
 
 import { Bpm, IBpmStats } from './bpm';
 
@@ -20,37 +11,15 @@ import { Bpm, IBpmStats } from './bpm';
     'app/bpm.component.css',
     'app/utils.css',
   ],
-  animations: [
-    trigger('pulseState', [
-      state('stateOne, stateTwo', style({
-        transform: 'scale(.5)',
-      })),
-      transition('* => *', [
-        animate(250, keyframes([
-          style({transform: 'scale(.5)'}),
-          style({transform: 'scale(1)'}),
-          style({transform: 'scale(.5)'}),
-        ])),
-      ]),
-    ])
-  ]
 })
-export class BpmComponent implements OnInit {
+export class BpmComponent {
   public bpm: Bpm = new Bpm();
   public bpmStats: IBpmStats;
 
-  private pulseState: string = 'stateOne';
-  private intervalSubject: Subject<any>;
-
-  ngOnInit() {
-    this.intervalSubject = new Subject();
-    this.intervalSubject
-      .switchMap(ms => ms ? Observable.interval(ms) : Observable.empty())
-      .subscribe(() => this.pulseState = this.pulseState === 'stateTwo' ? 'stateOne' : 'stateTwo');
-  }
+  private pulseDuration: number = 0;
 
   tap() {
     this.bpmStats = this.bpm.tap();
-    this.intervalSubject.next(this.bpmStats ? this.bpmStats.avgMs : null);
+    this.pulseDuration = this.bpmStats ? this.bpmStats.avgMs : 0;
   }
 }
