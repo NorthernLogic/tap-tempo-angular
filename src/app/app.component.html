@@ -2,19 +2,22 @@
     Tap Tempo
     <span class="fill-remaining-space"></span>
 
-    <md-icon *ngIf="soundEnabled" (click)="toggleSound(bpm)">volume_up</md-icon>
-    <md-icon *ngIf="!soundEnabled" (click)="toggleSound(bpm)">volume_mute</md-icon>
+    <div [ngSwitch]="soundEnabled" (click)="soundEnabled = !soundEnabled">
+      <md-icon *ngSwitchCase="true">volume_up</md-icon>
+      <md-icon *ngSwitchCase="false">volume_mute</md-icon>
+    </div>
     <md-toolbar-row>
       <bpm #bpm></bpm>
     </md-toolbar-row>
+    <tap-sound [interval]="bpm.bpmStats ? bpm.bpmStats.avgMs : null" [playing]="soundEnabled"></tap-sound>
 </md-toolbar>
 
 <div class="content">
   <p class="instructions">To determine the BPM, tap the button to the rhythm of the music.</p>
 
   <div class="tap-area" (click)="bpm.tap()">
-  <button md-fab>Tap</button>
-</div>
+    <button md-fab>Tap</button>
+  </div>
 
   <div class="brand">
     <a href="http://wearenorthern.com/" target="_blank">

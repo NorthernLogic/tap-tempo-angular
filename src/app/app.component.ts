@@ -5,6 +5,7 @@ import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 import { MD_ICON_DIRECTIVES, MdIconRegistry } from '@angular2-material/icon';
 
 import { BpmComponent } from './bpm.component';
+import { TapSoundComponent } from './tapSound.component';
 
 
 @Component({
@@ -20,6 +21,7 @@ import { BpmComponent } from './bpm.component';
     MD_TOOLBAR_DIRECTIVES,
     MD_ICON_DIRECTIVES,
     BpmComponent,
+    TapSoundComponent,
   ],
   providers: [
     MdIconRegistry,
@@ -28,9 +30,4 @@ import { BpmComponent } from './bpm.component';
 })
 export class AppComponent {
   private soundEnabled = true;
-
-  public toggleSound(bpmController: BpmComponent) {
-    this.soundEnabled = !this.soundEnabled;
-    bpmController.soundSubject.next(this.soundEnabled);
-  }
 }
