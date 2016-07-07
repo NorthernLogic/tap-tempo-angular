@@ -6,7 +6,7 @@ import { Bpm, IBpmStats } from './bpm';
 
 
 @Component({
-  selector: 'bpm',
+  selector: 'tap-bpm',
   templateUrl: 'app/bpm.component.html',
   styleUrls: [
     'app/bpm.component.css',

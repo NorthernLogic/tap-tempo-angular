@@ -7,7 +7,7 @@
       <md-icon *ngSwitchCase="false">volume_mute</md-icon>
     </div>
     <md-toolbar-row>
-      <bpm #bpm></bpm>
+      <tap-bpm #bpm></tap-bpm>
     </md-toolbar-row>
     <tap-sound [interval]="bpm.bpmStats ? bpm.bpmStats.avgMs : null" [playing]="soundEnabled"></tap-sound>
 </md-toolbar>
