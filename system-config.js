@@ -15,6 +15,7 @@ var materialPkgs = [
     'core',
     'button',
     'toolbar',
+    'icon',
 ];
 materialPkgs.forEach(function (pkg) {
     packages[("@angular2-material/" + pkg)] = { main: pkg + ".js" };
