@@ -2159,7 +2159,7 @@ $__System.register("8", ["d", "b", "c", "e"], function(exports_1, context_1) {
       operator_1 = operator_1_1;
     }],
     execute: function() {
-      exports_1("MANIFEST_URL", MANIFEST_URL = '/ngsw-manifest.json');
+      exports_1("MANIFEST_URL", MANIFEST_URL = 'ngsw-manifest.json');
       exports_1("CACHE_ACTIVE", CACHE_ACTIVE = 'ngsw.active');
       exports_1("CACHE_INSTALLING", CACHE_INSTALLING = 'ngsw.installing');
       (function(ManifestSource) {
