@@ -1,23 +1,37 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Inject,
+  Input,
+  OnInit,
+  OnChanges,
+  ViewChild,
+  ElementRef,
+ } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 import { Observable } from 'rxjs/Rx';
 import { Subject } from 'rxjs/Rx';
 
 @Component({
   selector: 'tap-sound',
-  template: '<div></div>',
+  template: `
+  <audio #audio>
+    <source src="app/tick.ogg" type="audio/ogg">
+    <source src="app/tick.mp3" type="audio/mpeg">
+  </audio>
+  `,
   styleUrls: [],
 })
-export class TapSoundComponent {
+export class TapSoundComponent implements OnInit, OnChanges {
   private interval$: Subject<number> = new Subject<number>();
   private sound$: Subject<boolean> =  new Subject<boolean>();
   private pageVisibility$: Observable<boolean>;
 
   @Input() interval: number;
   @Input() playing: boolean;
-  
+  @ViewChild('audio') audio: ElementRef;
 
-  constructor(private document: Document) {
+  constructor(@Inject(DOCUMENT) private document: Document) {
   }
 
   private isVisible() {
@@ -25,10 +39,6 @@ export class TapSoundComponent {
   }
 
   ngOnInit() {
-    const audio = new Audio();
-    audio.src = 'app/tick.ogg';
-    audio.load();
-
     this.pageVisibility$ = Observable.merge(
       Observable.of(this.isVisible()),
       Observable.fromEvent(this.document, 'visibilitychange')
@@ -41,7 +51,7 @@ export class TapSoundComponent {
       this.sound$
     )
       .switchMap(([ms, isVisible, soundEnabled]) => ms && isVisible && soundEnabled ? Observable.interval(ms) : Observable.empty())
-      .subscribe(ms => audio.play());
+      .subscribe(ms => this.audio.nativeElement.play());
 
     // We need to do this after all the subscriptions are setup
     this.interval$.next(this.interval);

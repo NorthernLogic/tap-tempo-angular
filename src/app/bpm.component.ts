@@ -19,10 +19,6 @@ export class BpmComponent implements OnInit {
   private pulseDuration: string = '0s';
   private intervalSubject: Subject<number> = new Subject<number>();
 
-  constructor(private document: Document) {
-  }
-
-
   ngOnInit() {
     this.intervalSubject
       .subscribe(ms => this.pulseDuration = ms + 'ms');
