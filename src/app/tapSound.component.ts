@@ -1,13 +1,11 @@
 import {
   Component,
-  Inject,
   Input,
   OnInit,
   OnChanges,
   ViewChild,
   ElementRef,
  } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
 
 import { Observable } from 'rxjs/Rx';
 import { Subject } from 'rxjs/Rx';
@@ -31,17 +29,14 @@ export class TapSoundComponent implements OnInit, OnChanges {
   @Input() playing: boolean;
   @ViewChild('audio') audio: ElementRef;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
-  }
-
   private isVisible() {
-    return document.visibilityState === 'visible';
+    return window.document.visibilityState === 'visible';
   }
 
   ngOnInit() {
     this.pageVisibility$ = Observable.merge(
       Observable.of(this.isVisible()),
-      Observable.fromEvent(this.document, 'visibilitychange')
+      Observable.fromEvent(window.document, 'visibilitychange')
         .map(this.isVisible)
     );
 
